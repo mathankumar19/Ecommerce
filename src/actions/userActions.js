@@ -37,33 +37,30 @@ export function userSuccess(data) {
 export function login(credentials) {
   return async (dispatch) => {
     dispatch({ type: USER_DATA.LOGIN_START });
-    
+
     try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: credentials.email,
-        password: credentials.password,
+      const response = await fetch('http://localhost:8000/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: credentials.email,
+          password: credentials.password,
+        }),
       });
-      
-      if (error) {
-        dispatch(loginFailure(error.message));
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        const message =
+          result.detail || result.message || result.error || 'Login failed. Please try again.';
+        dispatch(loginFailure(message));
         return;
       }
-      
-      // Get user profile data if needed
-      const { data: profileData } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', data.user.id)
-        .single();
-        
-      const userData = {
-        ...data.user,
-        profile: profileData || {}
-      };
-      
-      dispatch(loginSuccess(userData));
+
+      // result may contain user info and/or token from your backend
+      dispatch(loginSuccess(result));
     } catch (error) {
-      dispatch(loginFailure(error.message));
+      dispatch(loginFailure('Network error. Please check your connection.'));
     }
   };
 }
