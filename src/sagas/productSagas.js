@@ -16,8 +16,13 @@ function* fetchProductsSaga(action) {
     console.log('Saga: fetchProductsSaga - Fetching products from API...');
     const data = yield call(fetchAllProducts);
 
-    if (data && data.products) {
+    // Support both array response [] and object response { products: [] }
+    if (Array.isArray(data)) {
+      yield put(productSuccess(data));
+    } else if (data && Array.isArray(data.products)) {
       yield put(productSuccess(data.products));
+    } else if (data && Array.isArray(data.data)) {
+      yield put(productSuccess(data.data));
     } else {
       yield put(productFailure('Invalid API response format'));
     }
@@ -40,7 +45,17 @@ function* fetchSearchProductsSaga(action) {
   try {
     const query = action.payload;
     const data = yield call(fetchProductsBySearch, query);
-    yield put(fetchSearchProductsSuccess(data.products));
+
+    // Support both array response [] and object response { products: [] }
+    if (Array.isArray(data)) {
+      yield put(fetchSearchProductsSuccess(data));
+    } else if (data && Array.isArray(data.products)) {
+      yield put(fetchSearchProductsSuccess(data.products));
+    } else if (data && Array.isArray(data.data)) {
+      yield put(fetchSearchProductsSuccess(data.data));
+    } else {
+      yield put(fetchSearchProductsSuccess([]));
+    }
   } catch (error) {
     yield put(fetchSearchProductsFailure(error.message));
   }

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'https://dummyjson.com/products';
+const API_URL = 'http://localhost:8000/products';
+const PRODUCT_DETAIL_URL = 'http://localhost:8000/product';
 
 export const fetchAllProducts = async () => {
   try {
@@ -15,7 +16,7 @@ export const fetchAllProducts = async () => {
 
 export const fetchProductById = async (productId) => {
   try {
-    const response = await axios.get(`${API_URL}/${productId}`);
+    const response = await axios.get(`${PRODUCT_DETAIL_URL}/${productId}`);
     console.log('Full product detail response:', response);
     return response.data;
   } catch (error) {
@@ -26,7 +27,7 @@ export const fetchProductById = async (productId) => {
 
 export const fetchProductsBySearch = async (query) => {
   try {
-    const response = await axios.get(`${API_URL}/search?q=${query}`);
+    const response = await axios.get(`${API_URL}?search=${query}`);
     return response.data;
   } catch (error) {
     console.error('API error:', error);
