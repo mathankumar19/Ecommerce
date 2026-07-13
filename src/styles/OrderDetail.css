@@ -1,0 +1,50 @@
+/* Order Detail Page Styles */
+
+.order-detail-container {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.order-timeline {
+    margin: 30px 0;
+}
+
+.product-image-cell img {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    .order-detail-container {
+        margin: 0;
+        padding: 20px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .order-detail-container {
+        padding: 16px !important;
+    }
+
+    .product-image-cell img {
+        width: 40px;
+        height: 40px;
+    }
+}

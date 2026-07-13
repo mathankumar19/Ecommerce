@@ -1,0 +1,307 @@
+/* Department.css */
+.department-page {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.department-page h1 {
+  color: #8e44ad;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 50px 0;
+}
+
+.error {
+  text-align: right;
+  color: #e74c3c;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.department-content {
+  width: 100%;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+.department-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.data-preview {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  overflow: auto;
+  max-height: 500px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+/* Content Types Styling */
+.content-types {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.content-types h2 {
+  color: #8e44ad;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.content-types-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.slot-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.slot-item:hover {
+  transform: translateY(-5px);
+}
+
+.slot-item h3 {
+  color: #2c3e50;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.content-types-list h4 {
+  color: #8e44ad;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.content-types-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.content-types-list li {
+  background-color: #f0e6f7;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  border-left: 3px solid #8e44ad;
+}
+
+.content-type-object {
+  padding: 5px 0;
+}
+
+.content-type-property {
+  display: flex;
+  padding: 4px 0;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.content-type-property:last-child {
+  border-bottom: none;
+}
+
+.property-key {
+  font-weight: bold;
+  color: #8e44ad;
+  margin-right: 8px;
+  min-width: 100px;
+}
+
+.property-value {
+  color: #333;
+  word-break: break-word;
+}
+
+/* Details/Summary styling */
+details {
+  margin-top: 30px;
+}
+
+summary {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #e8e8e8;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
+  outline: none;
+}
+
+summary:hover {
+  background-color: #d8d8d8;
+}
+
+/* Trending Banners Slider Styles */
+.trending-banners-slider-container {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.trending-banners-slider-container h3 {
+  color: #8e44ad;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.trending-banners-slider {
+  margin-bottom: 40px;
+}
+
+.banner-slide {
+  position: relative;
+  outline: none;
+  padding: 0 10px;
+}
+
+.banner-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-title {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  background-color: rgba(142, 68, 173, 0.8);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  max-width: 80%;
+}
+
+/* No slick slider styles needed */
+
+/* Trending Banners Slider Styles */
+.trending-banners-slider-container {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.trending-banners-slider-container h3 {
+  color: #8e44ad;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.trending-banners-slider {
+  margin-bottom: 40px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Fix for slick slider to ensure all slides are visible */
+.trending-banners-slider .slick-list,
+.trending-banners-slider .slick-track {
+  width: 100%;
+  height: 100%;
+}
+
+.trending-banners-slider .slick-slide {
+  display: block !important;
+  width: 100%;
+}
+
+.banner-slide {
+  position: relative;
+  outline: none;
+  padding: 0 10px;
+  width: 100%;
+  display: block !important;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.banner-image:hover {
+  transform: scale(1.02);
+}
+
+.banner-title {
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  background-color: rgba(142, 68, 173, 0.8);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-weight: bold;
+  max-width: 80%;
+}
+
+/* Slick slider custom styles */
+.slick-prev, .slick-next {
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 30px;
+  opacity: 0.8;
+  color: #8e44ad;
+}
+
+.slick-dots {
+  bottom: -30px;
+}
+
+.slick-dots li button:before {
+  font-size: 12px;
+  color: #8e44ad;
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #8e44ad;
+}

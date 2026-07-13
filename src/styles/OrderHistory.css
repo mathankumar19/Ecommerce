@@ -1,0 +1,27 @@
+/* Order History Page Styles */
+
+.order-card {
+    transition: all 0.3s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.order-number {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: #e91e63;
+}
+
+.order-status-chip {
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .order-card {
+        padding: 16px !important;
+    }
+}

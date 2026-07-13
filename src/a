@@ -1,0 +1,40 @@
+import { ALGOLIA_HEADER_SEARCH } from '../constants/appConstants';
+
+export function algoliaHeaderSearchInitState() {
+  return { type: ALGOLIA_HEADER_SEARCH.INITSTATE };
+}
+
+export function algoliaHeaderSearchInit(data) {
+  return {
+    type: ALGOLIA_HEADER_SEARCH.INIT,
+    payload: data
+  };
+}
+
+export function algoliaHeaderSearch(data) {
+  return {
+    type: ALGOLIA_HEADER_SEARCH.START,
+    payload: data,
+  };
+}
+
+export function algoliaHeaderSearchFailure(data) {
+  return {
+    type: ALGOLIA_HEADER_SEARCH.REJECTED,
+    payload: data,
+  };
+}
+
+export function algoliaHeaderSearchSuccess(data) {
+  return {
+    type: ALGOLIA_HEADER_SEARCH.FULFILLED,
+    payload: data,
+  };
+}
+
+export function algoliaHeaderSearchSuggestionSuccess(data) {
+  return {
+    type: ALGOLIA_HEADER_SEARCH.SEARCH_SUGGESTION_FULFILLED,
+    payload: data,
+  };
+}

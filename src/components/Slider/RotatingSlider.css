@@ -1,0 +1,67 @@
+/* RotatingSlider.css */
+
+.rotating-banner-slider {
+  position: relative;
+  width: 100%;
+}
+
+/* Make the slider container take up full width */
+.slider-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the slider item */
+.slider-item {
+  width: 100%;
+}
+
+/* Style the image */
+.slider-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Position dots inside the banner */
+.rotating-banner-slider .slick-dots {
+  bottom: 20px;
+  z-index: 1;
+}
+
+/* Style the dots */
+.rotating-banner-slider .slick-dots li button:before {
+  color: white;
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.rotating-banner-slider .slick-dots li.slick-active button:before {
+  color: white;
+  opacity: 1;
+}
+
+/* Style the arrows */
+.rotating-banner-slider .slick-prev,
+.rotating-banner-slider .slick-next {
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+}
+
+.rotating-banner-slider .slick-prev {
+  left: 20px;
+}
+
+.rotating-banner-slider .slick-next {
+  right: 20px;
+}
+
+.rotating-banner-slider .slick-prev:before,
+.rotating-banner-slider .slick-next:before {
+  font-size: 40px;
+  opacity: 0.8;
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}

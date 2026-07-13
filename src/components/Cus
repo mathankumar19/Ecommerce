@@ -1,0 +1,76 @@
+import React, { useState, useEffect } from 'react';
+import '../styles/CustomSlider.css';
+
+const CustomSlider = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-advance slides every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // Go to previous slide
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  // Go to next slide
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  // Go to specific slide
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  return (
+    <div className="custom-slider-container">
+      <div className="slider-wrapper">
+        {/* Previous button */}
+        <button className="slider-btn prev-btn" onClick={prevSlide}>
+          &lt;
+        </button>
+        
+        {/* Slides */}
+        <div className="slider-content">
+          {images.map((image, index) => (
+            <div 
+              key={index} 
+              className={`slider-slide ${index === currentIndex ? 'active' : ''}`}
+            >
+              <img 
+                src={image.desktopImage} 
+                alt={image.title || `Slide ${index + 1}`} 
+                className="slider-image"
+              />
+              {image.title && <div className="slider-caption">{image.title}</div>}
+            </div>
+          ))}
+        </div>
+        
+        {/* Next button */}
+        <button className="slider-btn next-btn" onClick={nextSlide}>
+          &gt;
+        </button>
+      </div>
+      
+      {/* Dots navigation */}
+      <div className="slider-dots">
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={`slider-dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(index)}
+          ></span>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default CustomSlider;
